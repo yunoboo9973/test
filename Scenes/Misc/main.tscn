@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5w32338xfldx"]
+
+[ext_resource type="Texture2D" uid="uid://bx7s0kbanummw" path="res://Assets/2D Assets/Sprites/Dice Face Sprites/base_faces.png" id="1_dl24f"]
+[ext_resource type="Script" uid="uid://c7wultucomq6r" path="res://Scenes/Misc/animated_sprite_3d.gd" id="2_oeiyi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeiyi"]
+atlas = ExtResource("1_dl24f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg7go"]
+atlas = ExtResource("1_dl24f")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1l87"]
+atlas = ExtResource("1_dl24f")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bcy"]
+atlas = ExtResource("1_dl24f")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tv8v"]
+atlas = ExtResource("1_dl24f")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pacn"]
+atlas = ExtResource("1_dl24f")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xwa5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeiyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg7go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1l87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tv8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pacn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dl24f"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0.8156863, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l1o0v"]
+
+[node name="Main" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_xwa5h")
+script = ExtResource("2_oeiyi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
+projection = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29703295, 0)
+material_override = SubResource("StandardMaterial3D_dl24f")
+mesh = SubResource("PlaneMesh_l1o0v")
